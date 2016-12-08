@@ -1,0 +1,30 @@
+{
+    "name": "roadie/roadie",
+    "description": "Package configurator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent",
+            "email": "vincent.touzet@dotsafe.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/property-access": "^3.2",
+        "sebastian/diff": "^1.4",
+        "symfony/yaml": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Roadie\\": "lib"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
