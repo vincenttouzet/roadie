@@ -60,13 +60,15 @@ class Roadie
         foreach ($modifiers->getModifiers() as $modifier) {
             if ($this->getIo()) {
                 $diff = $modifier->diff();
-                // show diff to user
-                $this->getIo()->write(sprintf('<info>%s</info>', $modifier->getName()));
-                $this->getIo()->write($diff->asString());
-                // ask for update
-                $modify = $this->getIo()->askConfirmation('Do you want to apply these updates ? [y/N]');
-                if ($modify) {
-                    $modifier->modify();
+                if ($diff->hasDiff()) {
+                    // show diff to user
+                    $this->getIo()->write(sprintf('<info>%s</info>', $modifier->getName()));
+                    $this->getIo()->write($diff->asString());
+                    // ask for update
+                    $modify = $this->getIo()->askConfirmation('Do you want to apply these updates ? [y/N]');
+                    if ($modify) {
+                        $modifier->modify();
+                    }
                 }
             }
         }

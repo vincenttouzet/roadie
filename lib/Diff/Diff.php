@@ -31,6 +31,11 @@ class Diff
         $this->differ = new Differ();
     }
 
+    public function hasDiff()
+    {
+        return $this->from !== $this->to;
+    }
+
     /**
      * Return diff as a string
      *
