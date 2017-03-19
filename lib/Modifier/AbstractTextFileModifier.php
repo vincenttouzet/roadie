@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Roadie - Symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,6 @@ namespace Roadie\Modifier;
 
 use Roadie\Diff\Diff;
 use Roadie\Modifier\Exception\AlreadyModifiedException;
-use SebastianBergmann\Diff\Differ;
 
 abstract class AbstractTextFileModifier implements ModifierInterface
 {
@@ -37,8 +36,9 @@ abstract class AbstractTextFileModifier implements ModifierInterface
 
     /**
      * YamlModifier constructor.
+     *
      * @param string $file File to update
-     * @param mixed $data Data to update on file
+     * @param mixed  $data Data to update on file
      */
     public function __construct($file, $data)
     {
@@ -83,6 +83,7 @@ abstract class AbstractTextFileModifier implements ModifierInterface
 
     /**
      * @param string $file
+     *
      * @throws AlreadyModifiedException
      */
     public function setFile($file)
@@ -105,6 +106,7 @@ abstract class AbstractTextFileModifier implements ModifierInterface
 
     /**
      * @param mixed $data
+     *
      * @throws AlreadyModifiedException
      */
     public function setData($data)

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -29,7 +29,7 @@ class YAMLModifier extends AbstractTextFileModifier
     private $currentBlockIsItemCollection = false;
     private $itemCollection = [];
     private $previousValuePath = [];
-    /** @var  PropertyAccessor */
+    /** @var PropertyAccessor */
     private $propertyAccessor;
     private $dataToWrite;
 
@@ -162,7 +162,6 @@ class YAMLModifier extends AbstractTextFileModifier
     }
 
     /**
-     *
      * @return string
      */
     public function getName()
@@ -178,7 +177,7 @@ class YAMLModifier extends AbstractTextFileModifier
             // remove added line
             $lastLine = array_pop($this->newLines);
             // pop empty lines
-            $popedLines =  $this->popEmptyLines();
+            $popedLines = $this->popEmptyLines();
             if (count($replace) && $replace[0] === 'ITEM_COLLECTION_OVERRIDE') {
                 // remove special entry
                 array_shift($replace);
@@ -219,7 +218,7 @@ class YAMLModifier extends AbstractTextFileModifier
                 // remove added line
                 $lastLine = array_pop($this->newLines);
                 // pop empty lines
-                $popedLines =  $this->popEmptyLines();
+                $popedLines = $this->popEmptyLines();
                 // dump new blocks
                 $data = $this->dumpYAML($newData, str_repeat(' ', count($path) * $this->fileIndentation));
                 $lines = explode(PHP_EOL, $data);
@@ -254,7 +253,7 @@ class YAMLModifier extends AbstractTextFileModifier
     }
 
     /**
-     * Simple dump function that keep comments
+     * Simple dump function that keep comments.
      *
      * @param $data
      * @param string $indent
@@ -284,13 +283,12 @@ class YAMLModifier extends AbstractTextFileModifier
                     $value = $matches['value'];
                     $comment = $matches['comment'];
                 } else {
-
                 }
                 $value = trim($value);
                 $comment = trim($comment);
                 // escape value ?
                 if (!is_numeric($value) && $value[0] !== '\'' && $value[strlen($value) - 1] !== '\'') {
-                     $value = '\''.str_replace('\'', '\'\'', $value).'\'';
+                    $value = '\''.str_replace('\'', '\'\'', $value).'\'';
                 }
                 $output .= $indent.$tag.': '.$value.' '.$comment.PHP_EOL;
             }

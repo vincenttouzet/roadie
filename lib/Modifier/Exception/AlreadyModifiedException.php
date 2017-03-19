@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Roadie - Symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ use Roadie\Modifier\ModifierInterface;
 
 class AlreadyModifiedException extends \Exception
 {
-    /** @var ModifierInterface  */
+    /** @var ModifierInterface */
     protected $modifier;
 
     public function __construct(ModifierInterface $modifier)

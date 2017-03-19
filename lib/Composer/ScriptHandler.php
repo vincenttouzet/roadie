@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,13 +11,9 @@
 
 namespace Roadie\Composer;
 
-
 use Composer\Script\Event;
 use Roadie\Config\ConfigLoader;
-use Roadie\Diff\Formatter\IOFormatter;
-use Roadie\Framework\SymfonyFramework;
 use Roadie\Roadie;
-use Symfony\Component\Finder\Finder;
 
 class ScriptHandler
 {
@@ -35,7 +31,6 @@ class ScriptHandler
             $framework = sprintf('Roadie\\Framework\\%sFramework', ucfirst($framework));
         }
         $framework = new $framework();
-
 
         // init environment
         $configLoader = new ConfigLoader();

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Roadie - Symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,7 +26,7 @@ YAML;
         $update = [
             '_wdt' => [
                 'prefix' => '/new-prefix',
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -44,7 +44,7 @@ YAML;
         $update = [
             'twig' => [
                 'debug' => true,
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -66,7 +66,7 @@ YAML;
         $update = [
             'path' => [
                 'to' => 'Single line value',
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -87,9 +87,9 @@ YAML;
         $update = [
             'path' => [
                 'to' => [
-                    'value 3'
+                    'value 3',
                 ],
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -113,9 +113,9 @@ YAML;
             'path' => [
                 'to' => [
                     'ITEM_COLLECTION_OVERRIDE',
-                    'value 3'
+                    'value 3',
                 ],
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -134,7 +134,7 @@ YAML;
         $update = [
             'new' => [
                 'value' => 'test',
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -153,7 +153,7 @@ YAML;
         $update = [
             'path' => [
                 'sub' => 'test',
-            ]
+            ],
         ];
 
         $new = $this->modify($original, $update);
@@ -162,7 +162,7 @@ YAML;
     }
 
     /**
-     * @expectedException Roadie\Modifier\Exception\AlreadyModifiedException
+     * @expectedException \Roadie\Modifier\Exception\AlreadyModifiedException
      */
     public function testExceptionOnsetDataAfterModify()
     {
@@ -177,7 +177,7 @@ YAML;
         $modifier = new YAMLModifier($tmp_file, [
             '_wdt' => [
                 'test' => 'test',
-            ]
+            ],
         ]);
         $modifier->modify();
         unlink($tmp_file);
@@ -188,6 +188,7 @@ YAML;
     /**
      * @param $yaml
      * @param $data
+     *
      * @return string
      */
     protected function modify($yaml, $data)

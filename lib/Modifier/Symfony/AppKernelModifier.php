@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Roadie - Symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -25,7 +25,6 @@ class AppKernelModifier extends AbstractTextFileModifier
     private $devIndent = null;
 
     /**
-     *
      * @return string
      */
     public function getName()
@@ -86,7 +85,7 @@ class AppKernelModifier extends AbstractTextFileModifier
 
             // dev bundles
             if ($isInDevBundles && '}' === trim($line)) {
-                $isInDevBundles = false;;
+                $isInDevBundles = false;
                 array_pop($this->newLines);
                 // add new bundles if not already in declared bundles
                 $this->addBundles($newDevBundles, 'dev');

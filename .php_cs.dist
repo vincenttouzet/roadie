@@ -1,0 +1,29 @@
+<?php
+
+$header = <<<HEADER
+This file is part of the Roadie package.
+
+(c) Vincent Touzet <vincent.touzet@gmail.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+HEADER;
+
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__)
+;
+
+return PhpCsFixer\Config::create()
+    ->setRules(array(
+        '@Symfony' => true,
+        'array_syntax' => array('syntax' => 'short'),
+        'header_comment' => [
+            'header' => $header,
+        ],
+        'ordered_imports' => true,
+        'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_order' => true,
+    ))
+    ->setFinder($finder)
+;

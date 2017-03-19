@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the symfony project.
+ * This file is part of the Roadie package.
  *
- * (c) Vincent Touzet <vincent.touzet@dotsafe.fr>
+ * (c) Vincent Touzet <vincent.touzet@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,8 +14,6 @@ namespace Roadie;
 use Composer\Composer;
 use Composer\IO\IOInterface;
 use Roadie\Config\ConfigLoader;
-use Roadie\Diff\Formatter\FormatterInterface;
-use Roadie\Diff\Formatter\IOFormatter;
 use Roadie\Framework\FrameworkInterface;
 use Roadie\Modifier\ModifierCollection;
 
@@ -32,8 +30,8 @@ class Roadie
 
     /** @var FrameworkInterface */
     protected $framework;
-    
-    /** @var  IOInterface */
+
+    /** @var IOInterface */
     protected $io;
 
     public function __construct(Composer $composer, ConfigLoader $loader)
