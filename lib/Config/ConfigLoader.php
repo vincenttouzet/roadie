@@ -36,7 +36,7 @@ class ConfigLoader
     public function load()
     {
         // todo add cache
-        foreach ($this->finder->files() as $file) {
+        foreach ($this->finder->files()->getIterator() as $file) {
             $config = json_decode(file_get_contents($file->getPathname()), true);
             $package = new Package();
             $package->setName($config['name']);

@@ -18,8 +18,6 @@ interface FrameworkExtensionInterface
     /**
      * @param array              $config
      * @param ModifierCollection $modifierCollection
-     *
-     * @return mixed
      */
     public function processConfig(array $config, ModifierCollection $modifierCollection);
 }
